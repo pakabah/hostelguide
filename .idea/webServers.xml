@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="522c3414-5779-4e5c-99e7-8f97fe66aad7" name="Hostel Guide" url="http://ftp.bijouxquibrillent.com">
+        <fileTransfer host="ftp.bijouxquibrillent.com" port="21" password="dfc4dfcedfdcdfcfdfc7df93df98" username="hostelguide@bijouxquibrillent.com">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

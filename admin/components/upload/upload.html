@@ -1,0 +1,408 @@
+<div class="span9" ng-controller="UploadController">
+    <div class="content">
+        <div class="module">
+            <div class="module-head">
+
+            </div>
+            <div class="module-body">
+                        <!-- Custom Tabs -->
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab_1" data-toggle="tab">New Listing</a></li>
+                                <li><a href="#tab_2" data-toggle="tab">Manage Listings</a></li>
+                                <!--<li><a href="#comp" data-toggle="tab">Company Registration</a> </li>-->
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_1">
+                                    <div class="row" ng-cloak>
+                                        <div class="span6">
+                                            <div ng-cloak ng-hide="cCreated" class="alert alert-success">
+                                                <button class="close" data-dismiss="alert" type="button">&times;</button>New Listing Saved
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="row">-->
+                                        <!--<div class="span6">-->
+                                            <!--<div ng-cloak ng-hide="sErr" class="alert alert-danger">-->
+                                                <!--<button class="close" data-dismiss="alert" type="button">&times;</button>Sorry Phone number must contain only numbers-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="module">
+                                        <div class="module-head">
+                                            <h3>Add New Hostel</h3>
+                                        </div><!-- /.box-header -->
+                                        <!-- form start -->
+
+                                        <div class="row">
+                                            <form class="form-horizontal row-fluid">
+                                                <div class="control-group ">
+                                                    <label class="control-label">Hostel Name</label>
+                                                    <div class="controls">
+                                                        <input type="text" ng-model="hostelname" placeholder="Hostel Name">
+                                                    </div>
+                                                </div>
+                                                <div class="control-group ">
+                                                    <label class="control-label">Region</label>
+                                                    <div class="controls">
+                                                        <select ng-model="region" >
+                                                            <option value="Greater Accra Region">Greater Accra Region</option>
+                                                            <option value="Ashanti Region">Ashanti Region</option>
+                                                            <option value="Eastern Region">Eastern Region</option>
+                                                            <option value="Central Region">Central Region</option>
+                                                            <option value="Volta Region">Volta Region</option>
+                                                            <option value="Western Region">Western Region</option>
+                                                            <option value="Brong Ahafo Region">Brong Ahafo Region</option>
+                                                            <option value="Northern Region">Northern Region</option>
+                                                            <option value="Upper East Region">Upper East Region</option>
+                                                            <option value="Upper West Region">Upper West Region</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Campus</label>
+                                                    <div class="controls">
+                                                        <select ng-model="campus" >
+                                                            <option value="Ghana Telecom University">Ghana Telecom University</option>
+                                                            <option value="University of Ghana legon">University of Ghana Legon</option>
+                                                            <option value="Accra Polytechnic">Accra Polytechnic</option>
+                                                            <option value="Central University">Central University</option>
+                                                            <option value="KNUST">KNUST</option>
+                                                            <option value="University of Cape Coast">University of Cape Coast</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Services</label>
+                                                    <div class="controls">
+                                                        <select ng-model="service" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                            <option value="Laundry">Laundry</option>
+                                                            <option value="Cleaning">Cleaning</option>
+                                                            <option value="Retail Shop">Retail Shop</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Facilities</label>
+                                                    <div class="controls">
+                                                        <select ng-model="facilities" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                            <option value="Generator">Generator</option>
+                                                            <option value="Study Room">Study Room</option>
+                                                            <option value="Car Park">Car Park</option>
+                                                            <option value="TY Room">TV Room</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Area</label>
+                                                    <div class="controls">
+                                                        <input ng-model="area" type="text" placeholder="Area">
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Location</label>
+                                                    <div class="controls">
+                                                        <input ng-model="location" type="text" placeholder="Location">
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Phone Contact</label>
+                                                    <div class="controls">
+                                                        <input ng-model="phone" type="number" placeholder="Phone Contact">
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Email Contact</label>
+                                                    <div class="controls">
+                                                        <input ng-model="email" type="email" placeholder="Email Contact">
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Rooms</label>
+                                                    <div class="controls">
+                                                        <select ng-model="rooms">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="1,2,3,4">1,2,3,4</option>
+                                                            <option value="2,4">2,4</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div class="module-foot">
+                                            <input type="button" class="btn btn-success" ng-click="saveListing(hostelname,region,campus,area,location,phone,email,rooms)" value="Save">
+                                        </div>
+                                    </div>
+                                    <!-- /.box -->
+                                </div><!-- /.tab-pane -->
+                                <div class="tab-pane" id="tab_2">
+                                    <div class="row">
+                                        <div class="span6">
+                                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                <div class="panel panel-default" ng-repeat="iMyListingData in iMyListing track by $index">
+                                                    <div class="panel-heading" role="tab" id="{{$index}}">
+                                                        <h4 class="panel-title module-head">
+                                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{iMyListingData.id}}" aria-expanded="false" aria-controls="{{iMyListingData.id}}">
+                                                               {{iMyListingData.hostel_name}}
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="{{iMyListingData.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$index}}">
+                                                        <div class="panel-body">
+                                                           <div class="well">
+                                                               Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                           </div>
+                                                            <input type="button" class="btn btn-success" ng-click="" value="Edit">
+                                                            <br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                            <div class="module">
+                                                <div class="module-head">
+                                                    <h3>Update Hostel</h3>
+                                                </div><!-- /.box-header -->
+                                                <!-- form start -->
+
+                                                <div class="row">
+                                                    <form class="form-horizontal row-fluid">
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Hostel Name</label>
+                                                            <div class="controls">
+                                                                <input type="text" ng-model="hostelname" placeholder="Hostel Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Region</label>
+                                                            <div class="controls">
+                                                                <select ng-model="region" >
+                                                                    <option value="Greater Accra Region">Greater Accra Region</option>
+                                                                    <option value="Ashanti Region">Ashanti Region</option>
+                                                                    <option value="Eastern Region">Eastern Region</option>
+                                                                    <option value="Central Region">Central Region</option>
+                                                                    <option value="Volta Region">Volta Region</option>
+                                                                    <option value="Western Region">Western Region</option>
+                                                                    <option value="Brong Ahafo Region">Brong Ahafo Region</option>
+                                                                    <option value="Northern Region">Northern Region</option>
+                                                                    <option value="Upper East Region">Upper East Region</option>
+                                                                    <option value="Upper West Region">Upper West Region</option>
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Campus</label>
+                                                            <div class="controls">
+                                                                <select ng-model="campus" >
+                                                                    <option value="Ghana Telecom University">Ghana Telecom University</option>
+                                                                    <option value="University of Ghana legon">University of Ghana Legon</option>
+                                                                    <option value="Accra Polytechnic">Accra Polytechnic</option>
+                                                                    <option value="Central University">Central University</option>
+                                                                    <option value="KNUST">KNUST</option>
+                                                                    <option value="University of Cape Coast">University of Cape Coast</option>
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Services</label>
+                                                            <div class="controls">
+                                                                <select ng-model="service" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                                    <option value="Laundry">Laundry</option>
+                                                                    <option value="Cleaning">Cleaning</option>
+                                                                    <option value="Retail Shop">Retail Shop</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Facilities</label>
+                                                            <div class="controls">
+                                                                <select ng-model="facilities" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                                    <option value="Generator">Generator</option>
+                                                                    <option value="Study Room">Study Room</option>
+                                                                    <option value="Car Park">Car Park</option>
+                                                                    <option value="TY Room">TV Room</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Area</label>
+                                                            <div class="controls">
+                                                                <input ng-model="area" type="text" placeholder="Area">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Location</label>
+                                                            <div class="controls">
+                                                                <input ng-model="location" type="text" placeholder="Location">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Phone Contact</label>
+                                                            <div class="controls">
+                                                                <input ng-model="phone" type="number" placeholder="Phone Contact">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Email Contact</label>
+                                                            <div class="controls">
+                                                                <input ng-model="email" type="email" placeholder="Email Contact">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Rooms</label>
+                                                            <div class="controls">
+                                                                <select ng-model="rooms">
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="1,2,3,4">1,2,3,4</option>
+                                                                    <option value="2,4">2,4</option>
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="module-foot">
+                                                    <input type="button" class="btn btn-success" ng-click="updateListing(hostelname,region,campus,area,location,phone,email,rooms)" value="Update">
+                                                </div>
+                                            </div>
+
+                                </div><!-- /.tab-pane -->
+                                <div class="tab-pane" id="comp">
+                                    <div class="row">
+                                        <div class="span4">
+                                            <form>
+                                                <div class="control-group">
+                                                    <label>Search</label>
+                                                    <input type="text" class="controls" ng-model="mSearch" placeholder="Search">
+                                                </div>
+                                            </form>
+                                            <div class="col-md-6">
+                                                <div ng-cloak ng-hide="cSaved" class="alert alert-success">
+                                                    <button class="close" data-dismiss="alert" type="button">&times;</button>Changes Saved
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div class="box">
+                                                <div class="box-header">
+                                                    <h3 class="box-title">All Companies</h3>
+                                                    <div class="box-tools">
+                                                        <div class="input-group" style="width: 150px;">
+                                                            <input type="text"  ng-change="searchUser(mSearch)" ng-model="mSearch" class="controls input-sm pull-right" placeholder="Search">
+                                                            <div class="input-group-btn">
+                                                                <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.box-header -->
+                                                <div class="box-body table-responsive no-padding">
+                                                    <table class="table table-hover">
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Registration ID</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        <tr ng-cloak ng-repeat="mCompanyData in mCompany track by $index">
+                                                            <td>{{mCompanyData.companyName}}</td>
+                                                            <td>{{mCompanyData.id}}</td>
+                                                            <td>{{mCompanyData.status}}</td>
+                                                            <td>
+                                                                <a  class="btn btn-danger" ng-click="deleteUser(mCompanyData.id)">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <form>
+
+                                                        <div class="control-group span6">
+                                                            <label>Company Name</label>
+                                                            <input type="text" class="controls"  ng-model="companyName" placeholder="Company Name">
+                                                        </div>
+
+                                                        <div class="control-group span6">
+                                                            <label>Password</label>
+                                                            <input type="password" class="controls"  ng-model="companyName" placeholder="Enter Password">
+                                                        </div>
+
+                                                        <div class="control-group span6">
+                                                            <label>Status</label>
+                                                            <select ng-model="cStatus" class="controls">
+                                                                <option value="Active">Active</option>
+                                                                <option value="InActive">InActive</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="control-group span6">
+
+                                                        </div>
+
+                                                        <!--<div class="control-group span6">-->
+                                                        <!--<label>Phone</label>-->
+                                                        <!--<input type="number" class="controls"  ng-model="mPhone" placeholder="Phone Number">-->
+                                                        <!--</div>-->
+
+                                                        <!--<div class="control-group span6">-->
+                                                        <!--<label class="control-label">Date of Birth</label>-->
+                                                        <!--<div class="input-group date" datepicker ng-model="issueDate" data-date-format="dd/mm/yyyy">-->
+                                                        <!--<input class="controls"  type="text" id="date" name="date">-->
+                                                        <!--<span class="input-group-addon"><i class="icon-calendar"></i></span></input>-->
+                                                        <!--</div>-->
+                                                        <!--</div>-->
+
+                                                        <!--<div class="control-group span6">-->
+                                                        <!--<label class="control-label">Expire Date</label>-->
+                                                        <!--<div class="input-group date" datepicker ng-model="expDate" data-date-format="dd/mm/yyyy">-->
+                                                        <!--<input class="controls"  type="text" id="date" name="date">-->
+                                                        <!--<span class="input-group-addon"><i class="icon-calendar"></i></span></input>-->
+                                                        <!--</div>-->
+                                                        <!--</div>-->
+
+                                                        <button type="submit" ng-click="addCompany(companyName,cStatus)" class="btn btn-primary">Save</button>
+                                                    </form>
+
+                                                </div><!-- /.box-body -->
+                                            </div><!-- /.box -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- /.tab-content -->
+                        </div><!-- nav-tabs-custom -->
+                    </div><!-- /.col -->
+                </div>
+    </div>
+</div>
+
