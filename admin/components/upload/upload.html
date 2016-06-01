@@ -73,7 +73,27 @@
                                                             <option value="University of Cape Coast">University of Cape Coast</option>
                                                         </select>
                                                     </div>
+                                                </div>
 
+                                                <div class="control-group ">
+                                                    <label class="control-label">Description</label>
+                                                    <div class="controls">
+                                                        <textarea ng-model="description" placeholder="Description"> </textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Longitude</label>
+                                                    <div class="controls">
+                                                        <input type="text" ng-model="lon" placeholder="Longitude">
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Latitude</label>
+                                                    <div class="controls">
+                                                        <input type="text" ng-model="lat" placeholder="Latitude">
+                                                    </div>
                                                 </div>
 
                                                 <div class="control-group ">
@@ -141,10 +161,30 @@
                                                     </div>
                                                 </div>
 
+
+                                                <div class="control-group">
+                                                   <label class="control-label">Drop File:</label>
+                                                    <div class="controls">
+                                                        <div ngf-drop ngf-select required ng-model="files" class="drop-box"
+                                                             ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                                                             accept="image/*"
+                                                             ngf-pattern="'image/*'">Drop images here or click to upload</div>
+                                                        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                                                        <img ngf-src="files" class="thumb">
+                                                        Files:
+                                                        <ul>
+                                                            <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+                                                        </ul>
+                                                        Upload Log:
+                                                        <pre>{{log}}</pre>
+                                                    </div>
+
+                                                </div>
+
                                             </form>
                                         </div>
                                         <div class="module-foot">
-                                            <input type="button" class="btn btn-success" ng-click="saveListing(hostelname,region,campus,area,location,phone,email,rooms)" value="Save">
+                                            <input type="button" class="btn btn-success" ng-click="saveListing(hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat)" value="Save">
                                         </div>
                                     </div>
                                     <!-- /.box -->
@@ -164,7 +204,7 @@
                                                     <div id="{{iMyListingData.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{$index}}">
                                                         <div class="panel-body">
                                                            <div class="well">
-                                                               Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+
                                                            </div>
                                                             <input type="button" class="btn btn-success" ng-click="" value="Edit">
                                                             <br>
@@ -178,8 +218,7 @@
                                             <div class="module">
                                                 <div class="module-head">
                                                     <h3>Update Hostel</h3>
-                                                </div><!-- /.box-header -->
-                                                <!-- form start -->
+                                                </div>
 
                                                 <div class="row">
                                                     <form class="form-horizontal row-fluid">

@@ -35,6 +35,10 @@ a:hover,a:focus {
 a:visited {
   color:#fefefe;
 }
+.smallImg {
+  width: 124px;
+  height: 76px;
+}
 ul {
   margin:0;
   list-style-type:none;
@@ -930,7 +934,7 @@ footer .container .footer-newsletter input[type='submit'] {
 .page-title-section {
   float:left;
   width:100%;
-  background-image:url("../img/10_page-title-header.png");
+  background-image:url("../img/hostel_room.jpg");
   background-size:cover;
   background-repeat:no-repeat;
 }
@@ -1007,7 +1011,7 @@ footer .container .footer-newsletter input[type='submit'] {
 }
 /**** Blog-page ****/
 .blog-page .page-title-section {
-  background-image:url("../img/blog/20_blog-header.png");
+  background-image:url("../img/hostel_room.jpg");
 }
 .blog-page .blog-content {
   border-bottom:1px solid #CDCDCD;
@@ -1297,7 +1301,7 @@ footer .container .footer-newsletter input[type='submit'] {
 }
 /**** Contact-Page ****/
 .contact-page .page-title-section {
-  background-image:url("../img/29_contact_page-title-header.png");
+  background-image:url("../img/hostel_room.jpg");
 }
 .map-wrapper {
   margin-bottom:30px;
@@ -1467,7 +1471,7 @@ footer .container .footer-newsletter input[type='submit'] {
   display:none;
 }
 .single-page .page-title-section {
-  background-image:url("../img/single/30_page-title-header.png");
+  background-image:url("../img/hostel_room.jpg");
 }
 .single-page .blog-post {
   border-bottom:1px solid #E5E5E5;
@@ -1536,7 +1540,7 @@ footer .container .footer-newsletter input[type='submit'] {
 }
 /**** property-details-page ****/
 .property-details-page .page-title-section {
-  background-image:url("../img/property/38_property-header.png");
+  background-image:url("../img/hostel_room.jpg");
 }
 .property-details-page .page-content .inner-wrapper {
   float:left;

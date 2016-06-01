@@ -199,7 +199,7 @@
 			<div class="col-md-4 listing-single-item" ng-cloak ng-repeat="mListingList in mListing track by $index">
 				<div class="item-inner">
 					<div class="image-wrapper">
-						<img src="img/listings/02_img-1.png" alt="gallery">
+						<img src="img/listings/img.jpg" alt="gallery">
 						<a href="#" class='fa fa-home property-type-icon'></a>
 					</div>
 					<div class="desc-box">
@@ -207,11 +207,10 @@
 						<ul class="slide-item-features item-features">
 							<li><span class="fa fa-map-marker"></span>{{mListingList.campus}}</li>
 							<li><span class="fa fa-male"></span>2 bathrooms</li>
-							<li><span class="fa fa-hotel"></span>{{mListingList.rooms}} Room Types</li>
+							<li><span class="fa fa-hotel"></span>{{mListingList.rooms}} in a Room</li>
 						</ul>
 						<div class="buttons-wrapper">
-							<a href="#" class="yellow-btn">20,000GHC</a>
-							<a href="#" ng-click="" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
+							<a href="property-details.html?id={{mListingList.id}}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
 						</div>
 						<div class="clearfix">
 						</div>
@@ -242,13 +241,10 @@
 		<div class="col-md-3 footer-contact-info">
 			<h3 class='footer-title'>contact info</h3>
 			<p class="website-number">
-				<i class="fa fa-phone"></i> 900 123 456 789
+				<i class="fa fa-phone"></i> 0272589632
 			</p>
 			<p class="website-email">
-				<i class="fa fa-envelope"></i> robbhatman@sweethome.com
-			</p>
-			<p class="website-fax">
-				<i class="fa fa-print"></i> 900 123 456 789
+				<i class="fa fa-envelope"></i> info@hostelguide.com
 			</p>
 		</div>
 	</div>

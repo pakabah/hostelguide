@@ -77,6 +77,10 @@ app.factory("Listing", function($http){
         getDetails: function(id)
         {
             return  $http.post('../process/process_listings.php',{getDetailListing: 'ASEW45FUVNTE6UE', id:id});
+        },
+        getRecentAgents: function()
+        {
+            return  $http.post('../process/process_listings.php',{getAgentListing: 'ASEW45FUVNTE6UE'});
         }
     }
 });
@@ -174,15 +178,14 @@ app.controller("IndexController", function($scope,Login,Listing,Search){
         $scope.mRecent = data;
     });
 
-    Listing.getAllAgentListing().success(function(data){
-       $scope.mAgent = data;
-    });
-
     $scope.searchHide = true;
 
     $scope.searching = function(mHostel,mRegion,mCampus,mArea)
     {
+        $scope.searchHide = true;
+
         Search.searchHostel(mHostel,mRegion,mCampus,mArea).success(function(data){
+            console.log(data);
             $scope.searchHide = false;
 
             $scope.mSearch = data;
@@ -427,7 +430,56 @@ app.controller("DetailsController", function($scope,Login,Listing,$window,Search
         $scope.managerEmail = $scope.details[0].email;
         $scope.campus = $scope.details[0].campus;
         $scope.rooms = $scope.details[0].rooms;
-        console.log(data);
+        $scope.description = $scope.details[0].details;
+        $scope.picture = angular.fromJson($scope.details[0].pictures);
+        $scope.pic1 = $scope.picture[0].pics;
+        if(!angular.isUndefined($scope.picture[1]))
+        {
+            $scope.pic2 = $scope.picture[1].pics;
+        }
+        if(!angular.isUndefined($scope.picture[2]))
+        {
+            $scope.pic3 = $scope.picture[2].pics;
+        }if(!angular.isUndefined($scope.picture[3]))
+        {
+            $scope.pic4 = $scope.picture[3].pics;
+        }
+        var lat = $scope.details[0].lat;
+        var lon = $scope.details[0].long;
+        $(document).ready(function() {
+            // Google Map
+            var map;
+            var marker;
+            var MyMarker;
+            function initialize() {
+                var map_canvas = document.getElementById('property-location-map');
+                var myLatlng = new google.maps.LatLng(lon, lat);
+                var mapOptions = {
+                    center: myLatlng,
+                    zoom: 17,
+                    scrollwheel: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                map = new google.maps.Map(map_canvas, mapOptions);
+                TestMarker();
+            }
+            // Function for adding a marker to the page.
+            function addMarker(location) {
+                marker = new google.maps.Marker({
+                    position: location,
+                    icon: 'img/property/50_property-marker.png',
+                    map: map
+                });
+            }
+            // Testing the addMarker function
+            function TestMarker() {
+                MyMarker = new google.maps.LatLng(lon, lat);
+                addMarker(MyMarker);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        });
+
+        console.log($scope.pic1);
     });
 
     $scope.searchHide = true;
@@ -439,6 +491,8 @@ app.controller("DetailsController", function($scope,Login,Listing,$window,Search
 
             $scope.mSearch = data;
         });
-    }
+    };
+
+
 
 });

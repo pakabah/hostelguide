@@ -1,134 +1,86 @@
 <!doctype html>
 <html lang="en-us">
 <head>
-<!--Page Title-->
-<title>Hostel Guide</title>
-<!--Meta Tags-->
-<meta charset="UTF-8">
-<meta name="author" content="">
-<meta name="keywords" content=""/>
-<meta name="description" content=""/>
-<!-- Set Viewport-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css"/>
-<!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
+	<!--Page Title-->
+	<title>Hostel Guide</title>
+	<!--Meta Tags-->
+	<meta charset="UTF-8">
+	<meta name="author" content="">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<!-- Set Viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css"/>
+	<!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/flexslider.css">
-<link rel="stylesheet" href="css/select-theme-default.css">
-<link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/owl.theme.css">
-<link rel="stylesheet" href="css/style.css" type="text/css"/>
-<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="css/select-theme-default.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.theme.css">
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<style> [ng\:cloak], [ng-cloak], .ng-cloak { display: none !important; }</style>
 </head>
 <body id='top' ng-app="app" ng-controller="IndexController">
 <header>
-<div id="top-strip">
-	<div class="container" ng-cloak>
-		<div id="login-box" ng-hide="log" class='pull-right'>
-			<a href="login.html" class='fa fa-user'><span>Login</span></a>
-			<a href="register.html" class='fa fa-pencil'><span>Register</span></a>
-		</div>
+	<div id="top-strip">
+		<div class="container" ng-cloak>
+			<div id="login-box" ng-hide="log" class='pull-right'>
+				<a href="login.html" class='fa fa-user'><span>Login</span></a>
+				<a href="register.html" class='fa fa-pencil'><span>Register</span></a>
+			</div>
 
-		<div id="login-box" ng-hide="loggedIn" class='pull-right'>
-			<a href="login.html" class='fa fa-user'><span>{{username}}</span></a>
-			<a href="#" ng-click="logout()" class='fa fa-power-off'><span>Logout</span></a>
-		</div>
+			<div id="login-box" ng-hide="loggedIn" class='pull-right'>
+				<a href="login.html" class='fa fa-user'><span>{{username}}</span></a>
+				<a href="#" ng-click="logout()" class='fa fa-power-off'><span>Logout</span></a>
+			</div>
 
+		</div>
 	</div>
-</div>
 </header>
 <!-- /Header -->
 <div class="slider-section">
 	<div id="premium-bar">
 		<div class="container">
 			<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="logo"></a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="property-listing.html">Listings</a></li>
+							<li><a href="agents.html">agents</a></li>
+							<li><a href="contact.html">contact</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
 				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="property-listing.html">Listings</a></li>
-						<li><a href="agents.html">agents</a></li>
-						<li><a href="contact.html">contact</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
+				<!-- /.container-fluid -->
 			</nav>
 		</div>
 	</div>
 	<!-- Slider-Section -->
 	<div class="main-flexslider">
 		<ul class="slides">
-			<li class='slides' id='slide-n1'><img src="img/slide-01.jpg" alt="slide 01">
-			<div class="slide-box">
-				<h2>6571 Mill Creek Cir</h2>
-				<p>
-					 Situated on a half-acre corner allotment with two separate titles in the wonderful country township of Paruna, only 20 minutes drive from the town of Loxton.
-				</p>
-				<ul class="slide-item-features">
-					<li><span class="fa fa-arrows-alt"></span>5000 Sq Ft</li>
-					<li><span class="fa fa-inbox"></span>3 bedrooms</li>
-					<li><span class="fa fa-male"></span>2 bathrooms</li>
-					<li><span class="fa fa-truck"></span>1 garage</li>
-				</ul>
-				<div class="slider-buttons-wrapper">
-					<a href="#" class="yellow-btn">$370,000</a>
-					<a href="#" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
-				</div>
-			</div>
+			<li class='slides' id='slide-n1'><img src="img/hostel_6.jpg" alt="slide 01">
 			</li>
-			<li class='slides' id='slide-n2'><img src="img/slide-02.jpg" alt="slide">
-			<div class="slide-box">
-				<h2>114-120 Joynton Avenue, Zetland, NSW 2017</h2>
-				<p>
-					 Situated on a half-acre corner allotment with two separate titles in the wonderful country township of Paruna, only 20 minutes drive from the town of Loxton.
-				</p>
-				<ul class="slide-item-features">
-					<li><span class="fa fa-arrows-alt"></span>5000 Sq Ft</li>
-					<li><span class="fa fa-inbox"></span>3 bedrooms</li>
-					<li><span class="fa fa-male"></span>2 bathrooms</li>
-					<li><span class="fa fa-truck"></span>1 garage</li>
-				</ul>
-				<div class="slider-buttons-wrapper">
-					<a href="#" class="yellow-btn">$370,000</a>
-					<a href="#" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
-				</div>
-			</div>
+			<li class='slides' id='slide-n2'><img src="img/slide_2.jpg" alt="slide">
 			</li>
-			<li class='slides' id='slide-n3'><img src="img/slide-03.jpg" alt="slide">
-			<div class="slide-box">
-				<h2>2211 Summer Ridge Dr</h2>
-				<p>
-					 Situated on a half-acre corner allotment with two separate titles in the wonderful country township of Paruna, only 20 minutes drive from the town of Loxton.
-				</p>
-				<ul class="slide-item-features">
-					<li><span class="fa fa-arrows-alt"></span>5000 Sq Ft</li>
-					<li><span class="fa fa-inbox"></span>3 bedrooms</li>
-					<li><span class="fa fa-male"></span>2 bathrooms</li>
-					<li><span class="fa fa-truck"></span>1 garage</li>
-				</ul>
-				<div class="slider-buttons-wrapper">
-					<a href="#" class="yellow-btn">$370,000</a>
-					<a href="#" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
-				</div>
-			</div>
+			<li class='slides' id='slide-n3'><img src="img/hostel_3.jpg" alt="slide">
 			</li>
 		</ul>
 	</div>
@@ -138,64 +90,64 @@
 	<div class="container">
 		<div class="row">
 			<form>
-					<div class="col-lg-3 select-wrapper select-small" id='select-rent'>
-						<p>
-							Search
-						</p>
-						<form class="contact-form">
-							<div class="form-control">
-								<input type="text" ng-model="mHostel" style="width: 150px" placeholder="Search Hostel Here">
-							</div>
-						</form>
+				<div class="col-lg-3 select-wrapper select-small" id='select-rent'>
+					<p>
+						Search
+					</p>
+					<form class="contact-form">
+						<div class="form-control">
+							<input type="text" ng-model="mHostel" style="width: 150px" placeholder="Search Hostel Here">
+						</div>
+					</form>
 
-					</div>
-					<div class="col-lg-2 select-wrapper select-big" id='select-property'>
-						<p>
-							Region
-						</p>
-						<select ng-model="mRegion" class='elselect'>
-							<option value="any">any</option>
-							<option value="Greater Accra Region">Greater Accra Region</option>
-							<option value="Ashanti Region">Ashanti Region</option>
-							<option value="Eastern Region">Eastern Region</option>
-							<option value="Central Region">Central Region</option>
-							<option value="Volta Region">Volta Region</option>
-							<option value="Western Region">Western Region</option>
-							<option value="Brong Ahafo Region">Brong Ahafo Region</option>
-							<option value="Northern Region">Northern Region</option>
-							<option value="Upper East Region">Upper East Region</option>
-							<option value="Upper West Region">Upper West Region</option>
-						</select>
-					</div>
-					<div class="col-lg-2 select-wrapper select-big">
-						<p>
-							Campus
-						</p>
-						<select ng-model="mCampus" class='elselect'>
-							<option value="any">any</option>
-							<option value="Ghana Telecom University">Ghana Telecom University</option>
-							<option value="University of Ghana legon">University of Ghana Legon</option>
-							<option value="Accra Polytechnic">Accra Polytechnic</option>
-							<option value="Central University">Central University</option>
-							<option value="KNUST">KNUST</option>
-							<option value="University of Cape Coast">University of Cape Coast</option>
-						</select>
-					</div>
-					<div class="col-lg-2 select-wrapper select-small">
-						<p>
-							Area
-						</p>
-						<select ng-model="mArea" class='elselect'>
-							<option value="any">any</option>
-							<option value="potato-chips">Potato chips</option>
-							<option value="chips-and-salsa">Chips and salsa</option>
-							<option value="cookies">Cookies</option>
-							<option value="doritos">Doritos</option>
-							<option value="pringles">Pringles</option>
-							<option value="hot-pockets">Hot pockets</option>
-						</select>
-					</div>
-					<input type="submit" ng-click="searching(mHostel,mRegion,mCampus,mArea)" value="search" class='yellow-btn'>
+				</div>
+				<div class="col-lg-2 select-wrapper select-big" id='select-property'>
+					<p>
+						Region
+					</p>
+					<select ng-model="mRegion" class='elselect'>
+						<option value="any">any</option>
+						<option value="Greater Accra Region">Greater Accra Region</option>
+						<option value="Ashanti Region">Ashanti Region</option>
+						<option value="Eastern Region">Eastern Region</option>
+						<option value="Central Region">Central Region</option>
+						<option value="Volta Region">Volta Region</option>
+						<option value="Western Region">Western Region</option>
+						<option value="Brong Ahafo Region">Brong Ahafo Region</option>
+						<option value="Northern Region">Northern Region</option>
+						<option value="Upper East Region">Upper East Region</option>
+						<option value="Upper West Region">Upper West Region</option>
+					</select>
+				</div>
+				<div class="col-lg-2 select-wrapper select-big">
+					<p>
+						Campus
+					</p>
+					<select ng-model="mCampus" class='elselect'>
+						<option value="any">any</option>
+						<option value="Ghana Telecom University">Ghana Telecom University</option>
+						<option value="University of Ghana legon">University of Ghana Legon</option>
+						<option value="Accra Polytechnic">Accra Polytechnic</option>
+						<option value="Central University">Central University</option>
+						<option value="KNUST">KNUST</option>
+						<option value="University of Cape Coast">University of Cape Coast</option>
+					</select>
+				</div>
+				<div class="col-lg-2 select-wrapper select-small">
+					<p>
+						Area
+					</p>
+					<select ng-model="mArea" class='elselect'>
+						<option value="any">any</option>
+						<option value="potato-chips">Potato chips</option>
+						<option value="chips-and-salsa">Chips and salsa</option>
+						<option value="cookies">Cookies</option>
+						<option value="doritos">Doritos</option>
+						<option value="pringles">Pringles</option>
+						<option value="hot-pockets">Hot pockets</option>
+					</select>
+				</div>
+				<input type="submit" ng-click="searching(mHostel,mRegion,mCampus,mArea)" value="search" class='yellow-btn'>
 			</form>
 		</div>
 
@@ -214,7 +166,7 @@
 				<div class="col-md-4 listing-single-item" ng-repeat="mSearchList in mSearch track by $index">
 					<div class="item-inner">
 						<div class="image-wrapper">
-							<img src="img/listings/02_img-1.png" alt="gallery">
+							<img src="img/listings/img.jpg" alt="gallery">
 							<a href="#" class='fa fa-home property-type-icon'></a>
 						</div>
 						<div class="desc-box">
@@ -225,7 +177,6 @@
 								<li><span class="fa fa-hotel"></span>{{mSearchList.rooms}} Room Types</li>
 							</ul>
 							<div class="buttons-wrapper">
-								<a href="#" class="yellow-btn">20,000GHC</a>
 								<a href="property-details.html?id={{mSearchList.id}}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
 							</div>
 							<div class="clearfix">
@@ -251,7 +202,9 @@
 			<div class="col-md-4 listing-single-item" ng-repeat="mRecentList in mRecent track by $index">
 				<div class="item-inner">
 					<div class="image-wrapper">
-						<img src="img/listings/02_img-1.png" alt="gallery">
+						<!--<img src="img/listings/img.jpg" alt="gallery">-->
+						<img ng-src="http://hostelguide.icedandfreshfoods.com/{{mRecentList.picture}}" alt="gallery">
+
 						<a href="#" class='fa fa-home property-type-icon'></a>
 					</div>
 					<div class="desc-box">
@@ -259,10 +212,9 @@
 						<ul class="slide-item-features item-features">
 							<li><span class="fa fa-map-marker"></span>{{mRecentList.campus}}</li>
 							<li><span class="fa fa-male"></span>2 bathrooms</li>
-							<li><span class="fa fa-hotel"></span>{{mRecentList.rooms}} Room Types</li>
+							<li><span class="fa fa-hotel"></span>{{mRecentList.rooms}} in a Room</li>
 						</ul>
 						<div class="buttons-wrapper">
-							<a href="#" class="yellow-btn">20,000GHC</a>
 							<a href="property-details.html?id={{mRecentList.id}}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
 						</div>
 						<div class="clearfix">
@@ -273,53 +225,24 @@
 		</div>
 	</div>
 </div>
-<!-- Agents-Section -->
-<div class="agents-section">
-	<div class="container">
-		<div class="title-box">
-			<h3>our agents</h3>
-			<div class="bordered">
-			</div>
-		</div>
-		<div class="owl-carousel agents-slider">
-			<div class="single-agent" ng-repeat="mAgentListing in mAgent track by $index">
-				<div class="image-box">
-					<img src="img/agents/08_agent-photo1.png" alt="agent">
-				</div>
-				<div class="desc-box">
-					<h4>{{mAgentListing.name}}</h4>
-					<p class="person-number">
-						<i class="fa fa-phone"></i> {{mAgentListing.phone}}
-					</p>
-					<p class="person-email">
-						<i class="fa fa-envelope"></i> {{mAgentListing.email}}
-					</p>
 
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!-- footer-section -->
 <footer>
-<div class="container">
-	<div class="col-md-3 footer-about">
-		<a class="logo" href="#"><img src="img/logo.png" alt="logo"></a>
+	<div class="container">
+		<div class="col-md-3 footer-about">
+			<a class="logo" href="#"><img src="img/logo.png" alt="logo"></a>
+		</div>
+		<div class="col-md-3 footer-contact-info">
+			<h3 class='footer-title'>contact info</h3>
+			<p class="website-number">
+				<i class="fa fa-phone"></i> 0272589632
+			</p>
+			<p class="website-email">
+				<i class="fa fa-envelope"></i> info@hostelguide.com
+			</p>
+		</div>
 	</div>
-	<div class="col-md-3 footer-contact-info">
-		<h3 class='footer-title'>contact info</h3>
-		<p class="website-number">
-			<i class="fa fa-phone"></i> 900 123 456 789
-		</p>
-		<p class="website-email">
-			<i class="fa fa-envelope"></i> robbhatman@sweethome.com
-		</p>
-		<p class="website-fax">
-			<i class="fa fa-print"></i> 900 123 456 789
-		</p>
-	</div>
-</div>
 </footer>
 <div class="bottom-strip">
 	<div class="container">

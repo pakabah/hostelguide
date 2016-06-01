@@ -42,7 +42,7 @@ class login
     {
         $password = hash("sha256", $password);
 
-        if(!$this->checkUsername($username,$db))
+        if(!$this->checkUsername($username,$email,$db))
         {
             $status = "inactive";
             $query = "INSERT INTO users(username, password, email, phone, name, profile, status) VALUES (?,?,?,?,?,?,?)";
@@ -65,14 +65,14 @@ class login
     }
 
 
-    function checkUsername($username,$db)
+    function checkUsername($username,$email,$db)
     {
-        $query = "SELECT * FROM users WHERE username=?";
+        $query = "SELECT * FROM users WHERE username=? OR email=?";
         $q= $db->prepare($query);
-        $q->execute(array($username));
+        $q->execute(array($username,$email));
         $res  = $q->fetch(PDO::FETCH_ASSOC);
 
-        if($res['username'] == $username)
+        if($res['username'] == $username || $res['email'] == $email)
         {
             return true;
         }

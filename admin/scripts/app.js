@@ -1,7 +1,7 @@
 /**
  * Created by pakabah on 25/05/2016.
  */
-var app = angular.module('app',['ngNewRouter']);
+var app = angular.module('app',['ngNewRouter','ngFileUpload']);
 
 app.controller('RouteController', ['$router',function($router){
     $router.config([
@@ -76,21 +76,75 @@ app.controller("MainController", function($scope){
 
 });
 
-app.controller("UploadController", function($scope,Listing){
+app.controller("UploadController", function($scope,Listing,Upload,$timeout){
     $scope.cCreated = true;
 
-    $scope.saveListing = function(hostelname,region,campus,area,location,phone,email,rooms)
+    $scope.saveListing = function(hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat)
     {
-        console.log(hostelname+region+campus+area+location+phone+email+rooms);
-        Listing.uploadListing(hostelname,region,campus,area,location,phone,email,rooms).success(function(data){
-            $scope.cCreated = false;
-            console.log(data);
-        })
+        //Listing.uploadListing(hostelname,region,campus,area,location,phone,email,rooms).success(function(data){
+        //    $scope.cCreated = false;
+        //    console.log(data);
+        //})
+        $scope.upload($scope.files,hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat);
     };
 
     Listing.getMyListing().success(function(data){
         $scope.iMyListing = data;
         console.log(data);
     });
+
+    $scope.$watch('files', function () {
+        //$scope.upload($scope.files,hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat);
+    });
+    $scope.$watch('file', function () {
+        if ($scope.file != null) {
+            $scope.files = [$scope.file];
+        }
+    });
+    $scope.log = '';
+
+    $scope.upload = function (files,hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat) {
+        if (files && files.length) {
+            var hsId = null;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (!file.$error) {
+                    Upload.upload({
+                        url: '../process/process_file.php',
+                        data: {
+                            file: file,
+                            hostelname: hostelname,
+                            region: region,
+                            campus: campus,
+                            area:area,
+                            description: description,
+                            location:location,
+                            phone:phone,
+                            email:email,
+                            rooms:rooms,
+                            lon:lon,
+                            lat:lat,
+                            count: i,
+                            hsid:hsId
+                        }
+                    }).then(function (resp) {
+                       hsId = resp;
+                        //$timeout(function () {
+                        //    $scope.log = 'file: ' +
+                        //        resp.config.data.file.name +
+                        //        ', Response: ' + JSON.stringify(resp.data) +
+                        //        '\n' + $scope.log;
+                        //});
+                    }, null, function (evt) {
+                        var progressPercentage = parseInt(100.0 *
+                            evt.loaded / evt.total);
+                        $scope.log = 'progress: ' + progressPercentage +
+                            '% ' + evt.config.data.file.name + '\n' +
+                            $scope.log;
+                    });
+                }
+            }
+        }
+    }
 
 });

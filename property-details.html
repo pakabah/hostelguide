@@ -193,7 +193,7 @@
 	</div>
 </div>
 <!-- content-Section -->
-<div class="content-section">
+<div class="content-section" ng-controller="DetailsController">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 page-content">
@@ -204,109 +204,48 @@
 							<ul class="slides">
 								<li>
 								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
+									<img ng-src="http://hostelguide.icedandfreshfoods.com/{{pic1}}" alt="gallery">
 								</div>
 								</li>
 								<li>
 								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
+									<img ng-src="http://hostelguide.icedandfreshfoods.com/{{pic2}}" alt="gallery">
 								</div>
 								</li>
 								<li>
 								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
+									<img ng-src="http://hostelguide.icedandfreshfoods.com/{{pic3}}" alt="gallery">
 								</div>
 								</li>
 								<li>
 								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
-								</div>
-								</li>
-								<li>
-								<div class="image-wrapper">
-									<img src="img/property/39_slide-n1.png" alt="gallery">
+									<img ng-src="http://hostelguide.icedandfreshfoods.com/{{pic4}}" alt="gallery">
 								</div>
 								</li>
 							</ul>
 						</div>
 						<div id="details-carousel" class="flexslider">
+
 							<ul class="slides">
-								<li>
-								<img src="img/property/40_thumb-1.png"/>
-								</li>
-								<li>
-								<img src="img/property/41_thumb-2.png"/>
-								</li>
-								<li>
-								<img src="img/property/42_thumb-3.png"/>
-								</li>
-								<li>
-								<img src="img/property/43_thumb-4.png"/>
-								</li>
-								<li>
-								<img src="img/property/44_thumb-5.png"/>
-								</li>
-								<li>
-								<img src="img/property/45_thumb-6.png"/>
-								</li>
-								<li>
-								<img src="img/property/40_thumb-1.png"/>
-								</li>
-								<li>
-								<img src="img/property/41_thumb-2.png"/>
-								</li>
-								<li>
-								<img src="img/property/42_thumb-3.png"/>
-								</li>
-								<li>
-								<img src="img/property/43_thumb-4.png"/>
-								</li>
-								<li>
-								<img src="img/property/44_thumb-5.png"/>
-								</li>
-								<li>
-								<img src="img/property/45_thumb-6.png"/>
-								</li>
+
+								<li><img class="smallImg" alt="gallery" ng-src="http://hostelguide.icedandfreshfoods.com/{{pic1}}"/></li>
+
+								<li><img class="smallImg" alt="gallery" ng-src="http://hostelguide.icedandfreshfoods.com/{{pic2}}"/></li>
+
+								<li><img class="smallImg" alt="gallery" ng-src="http://hostelguide.icedandfreshfoods.com/{{pic3}}"/></li>
+
+								<li><img class="smallImg" alt="gallery" ng-src="http://hostelguide.icedandfreshfoods.com/{{pic4}}"/></li>
+
+								<!--<li>-->
+								<!--<img  class="smallImg" src="lisitngs/crianlarich-family-room.jpg" alt="gallery"/>-->
+								<!--</li>-->
+								<!--<li>-->
+								<!--<img class="smallImg" src="lisitngs/1415784948275_wps_9_UHostel_dorm_jpg.jpg"/>-->
+								<!--</li>-->
+								<!--<li>-->
+								<!--<img  class="smallImg" src="lisitngs/41.jpg"/>-->
+								<!--</li>-->
+
 							</ul>
 						</div>
 					</div>
@@ -352,7 +291,7 @@
 				<div class="sidebar-widget author-profile">
 					<h4 class="widget-title">Listed by</h4>
 					<div class="image-box">
-						<img src="img/property/49_author-avatar.png" alt="agent">
+						<img src="img/agents/manager_2.png" alt="agent">
 					</div>
 					<div class="desc-box">
 						<h4>{{manager}}</h4>
@@ -401,13 +340,10 @@
 		<div class="col-md-3 footer-contact-info">
 			<h3 class='footer-title'>contact info</h3>
 			<p class="website-number">
-				<i class="fa fa-phone"></i> 900 123 456 789
+				<i class="fa fa-phone"></i> 0272589632
 			</p>
 			<p class="website-email">
-				<i class="fa fa-envelope"></i> robbhatman@sweethome.com
-			</p>
-			<p class="website-fax">
-				<i class="fa fa-print"></i> 900 123 456 789
+				<i class="fa fa-envelope"></i> info@hostelguide.com
 			</p>
 		</div>
 	</div>
@@ -433,38 +369,7 @@
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		// Google Map
-		var map;
-	    var marker;
-	    var MyMarker;
-		function initialize() {
-		    var map_canvas = document.getElementById('property-location-map');
-		    var myLatlng = new google.maps.LatLng(-37.815748, 144.972667);
-		    var mapOptions = {
-		        center: myLatlng,
-		        zoom: 17,
-		        scrollwheel: false,
-		        mapTypeId: google.maps.MapTypeId.ROADMAP
-		    };
-		    map = new google.maps.Map(map_canvas, mapOptions);
-		    TestMarker();    
-		}
-		// Function for adding a marker to the page.
-		function addMarker(location) {
-		    marker = new google.maps.Marker({
-		        position: location,
-		        icon: 'img/property/50_property-marker.png',
-		        map: map
-		    });
-		}
-		// Testing the addMarker function
-		function TestMarker() {
-		       MyMarker = new google.maps.LatLng(-37.815748, 144.972667);
-		       addMarker(MyMarker);
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-	});
+
 	</script>
 </body>
 </html>

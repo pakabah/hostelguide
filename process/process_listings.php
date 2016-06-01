@@ -71,3 +71,8 @@ elseif($dataObj->getMyListing)
     $app = new listing();
     echo $app->getAllMyListings($username,$db);
 }
+elseif($dataObj->getAgentListing)
+{
+    $app = new listing();
+    echo $app->getRecentAgents($db);
+}
