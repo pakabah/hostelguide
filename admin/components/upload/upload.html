@@ -99,23 +99,25 @@
                                                 <div class="control-group ">
                                                     <label class="control-label">Services</label>
                                                     <div class="controls">
-                                                        <select ng-model="service" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                        <select ng-model="service" class="select2" multiple data-placeholder="Select a State" style="width: 100%;">
                                                             <option value="Laundry">Laundry</option>
                                                             <option value="Cleaning">Cleaning</option>
                                                             <option value="Retail Shop">Retail Shop</option>
                                                         </select>
+                                                        Hold Ctr to select multiple services
                                                     </div>
                                                 </div>
 
                                                 <div class="control-group ">
                                                     <label class="control-label">Facilities</label>
                                                     <div class="controls">
-                                                        <select ng-model="facilities" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                        <select ng-model="facilities" class="select2" multiple data-placeholder="Select a State" style="width: 100%;">
                                                             <option value="Generator">Generator</option>
                                                             <option value="Study Room">Study Room</option>
                                                             <option value="Car Park">Car Park</option>
                                                             <option value="TY Room">TV Room</option>
                                                         </select>
+                                                        Hold Ctr to select multiple facilities
                                                     </div>
                                                 </div>
 
@@ -148,22 +150,39 @@
                                                 </div>
 
                                                 <div class="control-group ">
-                                                    <label class="control-label">Rooms</label>
+                                                    <label class="control-label">One in a Room</label>
                                                     <div class="controls">
-                                                        <select ng-model="rooms">
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="1,2,3,4">1,2,3,4</option>
-                                                            <option value="2,4">2,4</option>
-                                                        </select>
+                                                        <input ng-model="oneRoom" type="text" placeholder="One in a Room Price">
+                                                    </div>
+
+                                                    <label class="control-label">Two in a Room</label>
+                                                    <div class="controls">
+                                                        <input ng-model="twoRoom" type="text" placeholder="Two in a Room Price">
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Three in a Room</label>
+                                                    <div class="controls">
+                                                        <input ng-model="threeRoom" type="text" placeholder="Three in a Room Price">
+                                                    </div>
+
+                                                    <label class="control-label">Four in a Room</label>
+                                                    <div class="controls">
+                                                        <input ng-model="fourRoom" type="text" placeholder="Four in a Room Price">
+                                                    </div>
+                                                </div>
+
+                                                <div class="control-group ">
+                                                    <label class="control-label">Five in a Room</label>
+                                                    <div class="controls">
+                                                        <input ng-model="fiveRoom" type="text" placeholder="Five in a Room Price">
                                                     </div>
                                                 </div>
 
 
                                                 <div class="control-group">
-                                                   <label class="control-label">Drop File:</label>
+                                                   <label class="control-label">Drop Multiple Files:</label>
                                                     <div class="controls">
                                                         <div ngf-drop ngf-select required ng-model="files" class="drop-box"
                                                              ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
@@ -184,7 +203,7 @@
                                             </form>
                                         </div>
                                         <div class="module-foot">
-                                            <input type="button" class="btn btn-success" ng-click="saveListing(hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat)" value="Save">
+                                            <input type="button" class="btn btn-success" ng-click="saveListing(hostelname,region,campus,area,location,phone,email,oneRoom,twoRoom,threeRoom,fourRoom,fiveRoom,service,facilities,description,lon,lat)" value="Save">
                                         </div>
                                     </div>
                                     <!-- /.box -->
@@ -207,6 +226,7 @@
 
                                                            </div>
                                                             <input type="button" class="btn btn-success" ng-click="" value="Edit">
+                                                            <input type="button" class="btn btn-danger" ng-click="" value="Delete">
                                                             <br>
                                                         </div>
                                                     </div>
@@ -259,29 +279,51 @@
                                                                     <option value="University of Cape Coast">University of Cape Coast</option>
                                                                 </select>
                                                             </div>
+                                                        </div>
 
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Description</label>
+                                                            <div class="controls">
+                                                                <textarea ng-model="description" placeholder="Description"> </textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Longitude</label>
+                                                            <div class="controls">
+                                                                <input type="text" ng-model="lon" placeholder="Longitude">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Latitude</label>
+                                                            <div class="controls">
+                                                                <input type="text" ng-model="lat" placeholder="Latitude">
+                                                            </div>
                                                         </div>
 
                                                         <div class="control-group ">
                                                             <label class="control-label">Services</label>
                                                             <div class="controls">
-                                                                <select ng-model="service" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                                <select ng-model="service" class="select2" multiple data-placeholder="Select a State" style="width: 100%;">
                                                                     <option value="Laundry">Laundry</option>
                                                                     <option value="Cleaning">Cleaning</option>
                                                                     <option value="Retail Shop">Retail Shop</option>
                                                                 </select>
+                                                                Hold Ctr to select multiple services
                                                             </div>
                                                         </div>
 
                                                         <div class="control-group ">
                                                             <label class="control-label">Facilities</label>
                                                             <div class="controls">
-                                                                <select ng-model="facilities" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                                <select ng-model="facilities" class="select2" multiple data-placeholder="Select a State" style="width: 100%;">
                                                                     <option value="Generator">Generator</option>
                                                                     <option value="Study Room">Study Room</option>
                                                                     <option value="Car Park">Car Park</option>
                                                                     <option value="TY Room">TV Room</option>
                                                                 </select>
+                                                                Hold Ctr to select multiple facilities
                                                             </div>
                                                         </div>
 
@@ -314,16 +356,52 @@
                                                         </div>
 
                                                         <div class="control-group ">
-                                                            <label class="control-label">Rooms</label>
+                                                            <label class="control-label">One in a Room</label>
                                                             <div class="controls">
-                                                                <select ng-model="rooms">
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="1,2,3,4">1,2,3,4</option>
-                                                                    <option value="2,4">2,4</option>
-                                                                </select>
+                                                                <input ng-model="oneRoom" type="text" placeholder="One in a Room Price">
+                                                            </div>
+
+                                                            <label class="control-label">Two in a Room</label>
+                                                            <div class="controls">
+                                                                <input ng-model="twoRoom" type="text" placeholder="Two in a Room Price">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Three in a Room</label>
+                                                            <div class="controls">
+                                                                <input ng-model="threeRoom" type="text" placeholder="Three in a Room Price">
+                                                            </div>
+
+                                                            <label class="control-label">Four in a Room</label>
+                                                            <div class="controls">
+                                                                <input ng-model="fourRoom" type="text" placeholder="Four in a Room Price">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="control-group ">
+                                                            <label class="control-label">Five in a Room</label>
+                                                            <div class="controls">
+                                                                <input ng-model="fiveRoom" type="text" placeholder="Five in a Room Price">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="control-group">
+                                                            <label class="control-label">Drop Multiple Files:</label>
+                                                            <div class="controls">
+                                                                <div ngf-drop ngf-select required ng-model="files" class="drop-box"
+                                                                     ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                                                                     accept="image/*"
+                                                                     ngf-pattern="'image/*'">Drop images here or click to upload</div>
+                                                                <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                                                                <img ngf-src="files" class="thumb">
+                                                                Files:
+                                                                <ul>
+                                                                    <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+                                                                </ul>
+                                                                Upload Log:
+                                                                <pre>{{log}}</pre>
                                                             </div>
 
                                                         </div>

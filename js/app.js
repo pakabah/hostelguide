@@ -268,6 +268,33 @@ app.controller("SignupController", function($scope,SignUp){
             }else
             {
 
+                toastr.options = {
+                    closeButton: true,
+                    debug: false,
+                    progressBar: false,
+                    positionClass: "toast-top-center",
+                    onclick: null
+                };
+
+                toastr.success("Account Created Successfully","Signup");
+                toastr.options.showDuration = 300;
+
+                toastr.options.hideDuration = 1000;
+
+                toastr.options.timeOut = 5000;
+
+                toastr.options.extendedTimeOut = 1000;
+
+                toastr.options.showEasing = "swing";
+
+                toastr.options.hideEasing = "swing";
+
+                toastr.options.showMethod = "fadeIn";
+
+                toastr.options.hideMethod = "fadeOut";
+
+                window.open("/login.html","_self");
+
             }
         });
     }
@@ -423,16 +450,19 @@ app.controller("DetailsController", function($scope,Login,Listing,$window,Search
 
     Listing.getDetails(target).success(function(data){
        $scope.details = data;
+        console.log(data);
 
         $scope.hostelName = $scope.details[0].hostel_name;
         $scope.manager = $scope.details[0].name;
         $scope.managerPhone = $scope.details[0].phone;
         $scope.managerEmail = $scope.details[0].email;
         $scope.campus = $scope.details[0].campus;
-        $scope.rooms = $scope.details[0].rooms;
+        $scope.rooms = angular.fromJson($scope.details[0].rooms);
+        $scope.facilities = angular.fromJson($scope.details[0].facilities);
         $scope.description = $scope.details[0].details;
         $scope.picture = angular.fromJson($scope.details[0].pictures);
         $scope.pic1 = $scope.picture[0].pics;
+        $scope.service = angular.fromJson($scope.details[0].services);
         if(!angular.isUndefined($scope.picture[1]))
         {
             $scope.pic2 = $scope.picture[1].pics;

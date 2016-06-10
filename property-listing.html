@@ -97,8 +97,8 @@
 						Search
 					</p>
 					<form class="contact-form">
-						<div class="form-control">
-							<input type="text" ng-model="mHostel" style="width: 150px" placeholder="Search Hostel Here">
+						<div>
+							<input type="text" class="form-control" ng-model="mHostel" style="width: 250px" placeholder="Search Hostel Here">
 						</div>
 					</form>
 
@@ -141,12 +141,12 @@
 					</p>
 					<select ng-model="mArea" class='elselect'>
 						<option value="any">any</option>
-						<option value="potato-chips">Potato chips</option>
-						<option value="chips-and-salsa">Chips and salsa</option>
-						<option value="cookies">Cookies</option>
-						<option value="doritos">Doritos</option>
-						<option value="pringles">Pringles</option>
-						<option value="hot-pockets">Hot pockets</option>
+						<!--<option value="potato-chips">Potato chips</option>-->
+						<!--<option value="chips-and-salsa">Chips and salsa</option>-->
+						<!--<option value="cookies">Cookies</option>-->
+						<!--<option value="doritos">Doritos</option>-->
+						<!--<option value="pringles">Pringles</option>-->
+						<!--<option value="hot-pockets">Hot pockets</option>-->
 					</select>
 				</div>
 				<input type="submit" ng-click="searching(mHostel,mRegion,mCampus,mArea)" value="search" class='yellow-btn'>
@@ -168,18 +168,17 @@
 				<div class="col-md-4 listing-single-item" ng-repeat="mSearchList in mSearch track by $index">
 					<div class="item-inner">
 						<div class="image-wrapper">
-							<img src="img/listings/02_img-1.png" alt="gallery">
+							<img ng-src="http://hostelguide.icedandfreshfoods.com/{{mSearchList.picture}}" class="tumb" alt="gallery">
 							<a href="#" class='fa fa-home property-type-icon'></a>
 						</div>
 						<div class="desc-box">
 							<h4><a href="#">{{mSearchList.hostel_name}}</a></h4>
 							<ul class="slide-item-features item-features">
 								<li><span class="fa fa-map-marker"></span>{{mSearchList.campus}}</li>
-								<li><span class="fa fa-male"></span>2 bathrooms</li>
-								<li><span class="fa fa-hotel"></span>{{mSearchList.rooms}} Room Types</li>
+								<li><span class="fa fa-male"></span>{{mSearchList.facility}} Available</li>
+								<li><span class="fa fa-hotel"></span>{{mSearchList.rooms}} in a Room for {{mSearchList.price}} GHC</li>
 							</ul>
 							<div class="buttons-wrapper">
-								<a href="#" class="yellow-btn">20,000GHC</a>
 								<a href="property-details.html?id={{mSearchList.id}}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>
 							</div>
 							<div class="clearfix">
@@ -199,15 +198,15 @@
 			<div class="col-md-4 listing-single-item" ng-cloak ng-repeat="mListingList in mListing track by $index">
 				<div class="item-inner">
 					<div class="image-wrapper">
-						<img src="img/listings/img.jpg" alt="gallery">
+						<img ng-src="http://hostelguide.icedandfreshfoods.com/{{mListingList.picture}}" class="tumb" alt="gallery">
 						<a href="#" class='fa fa-home property-type-icon'></a>
 					</div>
 					<div class="desc-box">
 						<h4><a href="#">{{mListingList.hostel_name}}</a></h4>
 						<ul class="slide-item-features item-features">
 							<li><span class="fa fa-map-marker"></span>{{mListingList.campus}}</li>
-							<li><span class="fa fa-male"></span>2 bathrooms</li>
-							<li><span class="fa fa-hotel"></span>{{mListingList.rooms}} in a Room</li>
+							<li><span class="fa fa-male"></span>{{mListingList.facility}} Available</li>
+							<li><span class="fa fa-hotel"></span>{{mListingList.rooms}} in a Room for {{mListingList.price}} GHC</li>
 						</ul>
 						<div class="buttons-wrapper">
 							<a href="property-details.html?id={{mListingList.id}}" class="gray-btn"><span class="fa fa-file-text-o"></span>Details</a>

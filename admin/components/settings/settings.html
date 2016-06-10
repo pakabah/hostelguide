@@ -1,0 +1,115 @@
+<div class="span9" ng-controller="SettingsController">
+    <div class="content">
+        <div class="module">
+            <div class="module-body">
+                <div class="profile-head media">
+                    <a href="#" class="media-avatar pull-left">
+                        <img src="images/user.png">
+                    </a>
+                    <div class="media-body">
+                        <h4>
+                           {{num}}
+                        </h4>
+                    </div>
+                </div>
+                <ul class="profile-tab nav nav-tabs">
+                    <li class="active"><a href="#activity" data-toggle="tab"> Account Details </a></li>
+                    <li><a href="#friends" data-toggle="tab">Reset Password</a></li>
+                </ul>
+                <div class="profile-tab-content tab-content">
+                    <div class="tab-pane fade active in" id="activity">
+                        <div class="stream-list">
+                            <div class="media stream">
+                                <a href="#" class="media-avatar medium pull-left">
+
+                                </a>
+                                <div class="media-body">
+                                    <form class="form-horizontal row-fluid">
+
+
+                                        <div class="control-group">
+                                            <label class="control-label">Change Profile Picture:</label>
+                                            <div class="controls">
+                                                <div ngf-drop ngf-select required ng-model="files" class="drop-box"
+                                                     ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                                                     accept="image/*"
+                                                     ngf-pattern="'image/*'">Drop images here or click to upload</div>
+                                                <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+                                                <img ngf-src="files" class="thumb">
+                                                Files:
+                                                <ul>
+                                                    <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+                                                </ul>
+                                                Upload Log:
+                                                <pre>{{log}}</pre>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="control-group ">
+                                            <label class="control-label">Name</label>
+                                            <div class="controls">
+                                                <input type="text" ng-model="names" placeholder="Name">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group ">
+                                            <label class="control-label">Phone Contact</label>
+                                            <div class="controls">
+                                                <input ng-model="phone" type="number" placeholder="Phone">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group ">
+                                            <label class="control-label">Email Contact</label>
+                                            <div class="controls">
+                                                <input ng-model="email" type="email" placeholder="Email">
+                                            </div>
+                                        </div>
+
+                                        <input type="button" class="btn btn-success" value="Update">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.stream-list-->
+                    </div>
+                    <div class="tab-pane fade" id="friends">
+                        <div class="module-option clearfix">
+
+                        </div>
+                        <div class="module-body">
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <form class="form-horizontal row-fluid">
+
+                                        <div class="control-group ">
+                                            <label class="control-label">Old Password</label>
+                                            <div class="controls">
+                                                <input type="password" ng-model="oldpassword" placeholder="Old Password">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group ">
+                                            <label class="control-label">New Password</label>
+                                            <div class="controls">
+                                                <input ng-model="newpassword" type="password" placeholder="New Password">
+                                            </div>
+                                        </div>
+
+                                        <input type="button" class="btn btn-success" value="Update">
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.module-body-->
+        </div>
+        <!--/.module-->
+    </div>
+    <!--/.content-->
+</div>

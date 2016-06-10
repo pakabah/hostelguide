@@ -17,7 +17,7 @@ $username = $_SESSION['username'];
 
 if($dataObj->search)
 {
-    $search = $dataObj->searchTearm;
+    $search = $dataObj->searchTerm;
     $region = $dataObj->region;
     $campus = $dataObj->campus;
     $area = $dataObj->area;

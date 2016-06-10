@@ -6,7 +6,8 @@ var app = angular.module('app',['ngNewRouter','ngFileUpload']);
 app.controller('RouteController', ['$router',function($router){
     $router.config([
         {path:'/',redirectTo: '/upload'},
-        {path:'/upload', component: 'upload'}
+        {path:'/upload', component: 'upload'},
+        {path:'/settings', component: 'settings'}
     ]);
 }
 ]);
@@ -58,6 +59,23 @@ app.factory("Listing", function($http){
     }
 });
 
+app.factory("Settings", function($http){
+   return{
+       getMyDetails: function()
+       {
+           return  $http.post('../process/process_user.php',{getMyInfo: 'ASEW45FUVNTE6UE'});
+       },
+       updatePassword: function(oldPassword,newPassword)
+       {
+           return  $http.post('../process/process_user.php',{updatePassword: 'ASEW45FUVNTE6UE',oldPassword:oldPassword,newPassword:newPassword});
+       },
+       updateDetails: function(name,email,phone)
+       {
+           return  $http.post('../process/process_user.php',{updateDetails: 'ASEW45FUVNTE6UE',name:name,email:email,phone:phone});
+       }
+   }
+});
+
 app.controller("MenuController", function($scope,Login){
     Login.getName().success(function(data){
        $scope.name = data;
@@ -79,13 +97,10 @@ app.controller("MainController", function($scope){
 app.controller("UploadController", function($scope,Listing,Upload,$timeout){
     $scope.cCreated = true;
 
-    $scope.saveListing = function(hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat)
+    $scope.saveListing = function(hostelname,region,campus,area,location,phone,email,oneRoom,twoRoom,threeRoom,fourRoom,fiveRoom,service,facilities,description,lon,lat)
     {
-        //Listing.uploadListing(hostelname,region,campus,area,location,phone,email,rooms).success(function(data){
-        //    $scope.cCreated = false;
-        //    console.log(data);
-        //})
-        $scope.upload($scope.files,hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat);
+        $scope.cCreated = true;
+        $scope.upload($scope.files,hostelname,region,campus,area,location,phone,email,oneRoom,twoRoom,threeRoom,fourRoom,fiveRoom,service,facilities,description,lon,lat);
     };
 
     Listing.getMyListing().success(function(data){
@@ -103,7 +118,8 @@ app.controller("UploadController", function($scope,Listing,Upload,$timeout){
     });
     $scope.log = '';
 
-    $scope.upload = function (files,hostelname,region,campus,area,location,phone,email,rooms,description,lon,lat) {
+    $scope.upload = function (files,hostelname,region,campus,area,location,phone,email,oneRoom,twoRoom,threeRoom,fourRoom,fiveRoom,service,facilities,description,lon,lat) {
+        console.log(hostelname+" "+region+" "+campus+" "+area+" "+location+" "+phone+" "+email+" "+oneRoom+" "+twoRoom+" "+threeRoom+" "+fourRoom+" "+fiveRoom+" "+service+" "+facilities+" "+description+" "+lon+" "+lat);
         if (files && files.length) {
             var hsId = null;
             for (var i = 0; i < files.length; i++) {
@@ -121,10 +137,16 @@ app.controller("UploadController", function($scope,Listing,Upload,$timeout){
                             location:location,
                             phone:phone,
                             email:email,
-                            rooms:rooms,
+                            oneRoom:oneRoom,
+                            twoRoom:twoRoom,
+                            threeRoom:threeRoom,
+                            fourRoom:fourRoom,
+                            fiveRoom:fiveRoom,
                             lon:lon,
                             lat:lat,
                             count: i,
+                            facilities:facilities,
+                            services:service,
                             hsid:hsId
                         }
                     }).then(function (resp) {
@@ -144,7 +166,22 @@ app.controller("UploadController", function($scope,Listing,Upload,$timeout){
                     });
                 }
             }
+
+            $scope.cCreated = false;
         }
     }
 
+});
+
+app.controller("SettingsController", function($scope,Settings,Login){
+
+    Settings.getMyDetails().success(function(data){
+        $scope.names = data.name;
+        $scope.email = data.email;
+        $scope.phone = data.phone;
+    });
+
+    Login.getName().success(function(data){
+        $scope.num = data;
+    });
 });
