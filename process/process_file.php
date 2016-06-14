@@ -22,7 +22,6 @@ $hsid = $_SESSION['hsId'];
 
 if($count == 0)
 {
-    session_start();
     $hostel_name =$_POST['hostelname'];
     $region = $_POST['region'];
     $campus = $_POST['campus'];
@@ -113,7 +112,8 @@ if($count == 0)
     $app = new listing();
     $app->uploadPictures($hostelId,'lisitngs/'.$newname,$db);
 
-    $hostelId = $_SESSION['hsId'];
+    session_start();
+      $_SESSION['hsId'] = $hostelId;
 }
 
 if($count > 0)

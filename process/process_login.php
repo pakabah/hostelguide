@@ -59,3 +59,13 @@ elseif($dataObj->getUsername)
 {
     echo $mName;
 }
+elseif($dataObj->getUserPic)
+{
+    $query = "SELECT * FROM users WHERE username=?";
+    $q = $db->prepare($query);
+    $q->execute(array($uname));
+
+    $res = $q->fetch(PDO::FETCH_ASSOC);
+
+    echo $res['profile_pic'];
+}

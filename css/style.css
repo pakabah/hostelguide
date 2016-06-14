@@ -44,6 +44,17 @@ a:visited {
   width: 370px;
   height: 246px;
 }
+
+.prof {
+  width: 280px;
+  height: 266px;
+}
+
+.detProf {
+  width: 310px;
+  height: 294px;
+}
+
 ul {
   margin:0;
   list-style-type:none;
@@ -636,8 +647,8 @@ header #login-box a span {
   overflow:hidden;
 }
 .single-agent .image-box img {
-  width:100%;
-  height:auto;
+  /*width:auto;*/
+  /*height:auto;*/
   overflow:hidden;
 }
 .single-agent .image-box .social-icons {
@@ -1263,7 +1274,7 @@ footer .container .footer-newsletter input[type='submit'] {
   position:relative;
 }
 .author-profile .image-box img {
-  width:100%;
+  /*width:100%;*/
 }
 .author-profile .image-box .social-icons {
   background-color:rgba(0,149,230,0.9);
@@ -1612,7 +1623,7 @@ footer .container .footer-newsletter input[type='submit'] {
 .property-desc .item-features li {
   border:none;
   margin-right:15px;
-  padding:3px 0px;
+  padding:10px 0px;
   font-size:12px;
 }
 .property-desc p {

@@ -21,6 +21,7 @@ class user
         $data['name'] = $res['name'];
         $data['email'] = $res['email'];
         $data['phone'] = $res['phone'];
+        $data['pic'] = $res['profile_pic'];
 
         return json_encode($data);
     }

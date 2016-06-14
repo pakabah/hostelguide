@@ -81,6 +81,14 @@ app.factory("Listing", function($http){
         getRecentAgents: function()
         {
             return  $http.post('../process/process_listings.php',{getAgentListing: 'ASEW45FUVNTE6UE'});
+        },
+        reserveListing: function(hostel_id,price,room)
+        {
+            return  $http.post('../process/process_listings.php',{reserveListing: 'ASEW45FUVNTE6UE', id:hostel_id, price:price,room:room});
+        },
+        checkReservation: function()
+        {
+            return  $http.post('../process/process_listings.php',{checkReservation: 'ASEW45FUVNTE6UE'});
         }
     }
 });
@@ -456,6 +464,7 @@ app.controller("DetailsController", function($scope,Login,Listing,$window,Search
         $scope.manager = $scope.details[0].name;
         $scope.managerPhone = $scope.details[0].phone;
         $scope.managerEmail = $scope.details[0].email;
+        $scope.managerProfile = $scope.details[0].profile_pic;
         $scope.campus = $scope.details[0].campus;
         $scope.rooms = angular.fromJson($scope.details[0].rooms);
         $scope.facilities = angular.fromJson($scope.details[0].facilities);
@@ -463,6 +472,7 @@ app.controller("DetailsController", function($scope,Login,Listing,$window,Search
         $scope.picture = angular.fromJson($scope.details[0].pictures);
         $scope.pic1 = $scope.picture[0].pics;
         $scope.service = angular.fromJson($scope.details[0].services);
+        $scope.hostel_id = $scope.details[0].id;
         if(!angular.isUndefined($scope.picture[1]))
         {
             $scope.pic2 = $scope.picture[1].pics;
@@ -523,6 +533,73 @@ app.controller("DetailsController", function($scope,Login,Listing,$window,Search
         });
     };
 
+    $scope.reserve = function(hostel_id,price,room)
+    {
+        Listing.checkReservation().success(function(data){
+            console.log(data);
+            if(data == '0')
+           {
+               window.open("login.html","_self");
+           }
+            else if( data == "2")
+           {
+               toastr.options = {
+                   closeButton: true,
+                   debug: false,
+                   progressBar: false,
+                   positionClass: "toast-top-center",
+                   onclick: null
+               };
 
+               toastr.error("Your Account cannot Reserve","Error");
+               toastr.options.showDuration = 300;
+
+               toastr.options.hideDuration = 1000;
+
+               toastr.options.timeOut = 5000;
+
+               toastr.options.extendedTimeOut = 1000;
+
+               toastr.options.showEasing = "swing";
+
+               toastr.options.hideEasing = "swing";
+
+               toastr.options.showMethod = "fadeIn";
+
+               toastr.options.hideMethod = "fadeOut";
+
+           }
+            else if(data == "1")
+           {
+               Listing.reserveListing(hostel_id,price,room).success(function(data){
+                   console.log(data);
+                   toastr.options = {
+                       closeButton: true,
+                       debug: false,
+                       progressBar: false,
+                       positionClass: "toast-top-center",
+                       onclick: null
+                   };
+
+                   toastr.success("Reservation has been made","Reservation");
+                   toastr.options.showDuration = 300;
+
+                   toastr.options.hideDuration = 1000;
+
+                   toastr.options.timeOut = 5000;
+
+                   toastr.options.extendedTimeOut = 1000;
+
+                   toastr.options.showEasing = "swing";
+
+                   toastr.options.hideEasing = "swing";
+
+                   toastr.options.showMethod = "fadeIn";
+
+                   toastr.options.hideMethod = "fadeOut";
+               });
+           }
+        });
+    }
 
 });

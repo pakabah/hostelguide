@@ -14,6 +14,7 @@ global $db;
 $postdata = file_get_contents("php://input");
 $dataObj = json_decode($postdata,false);
 $username = $_SESSION['username'];
+$profile = $_SESSION['profile'];
 
 if($dataObj->getRecentListing)
 {
@@ -30,26 +31,6 @@ elseif($dataObj->getSearchListing)
     $search = $dataObj->search;
     $app = new listing();
     echo $app->getSearchListing($search,$db);
-}
-elseif($dataObj->uploadListing)
-{
-    $hostel_name = $dataObj->hostelname;
-    $region = $dataObj->region;
-    $campus = $dataObj->campus;
-    $area = $dataObj->area;
-    $location = $dataObj->location;
-    $phone = $dataObj->phone;
-    $email = $dataObj->email;
-    $rooms = $dataObj->rooms;
-
-    $long = "";
-    $lat  = "";
-
-//    $long = $dataObj->long;
-//    $lat  = $dataObj->lat;
-
-    $app = new listing();
-    echo $app->uploadListing($hostel_name,$username,$region,$campus,$area,$location,$phone,$email,$rooms,$long,$lat,$db);
 }
 elseif($dataObj->getMyListings)
 {
@@ -75,4 +56,51 @@ elseif($dataObj->getAgentListing)
 {
     $app = new listing();
     echo $app->getRecentAgents($db);
+}
+elseif($dataObj->getListingEdit)
+{
+    $app = new listing();
+    echo $app->getEditDetails($dataObj->getListingEdit, $db);
+}
+elseif($dataObj->deleteListing)
+{
+    $app = new listing();
+     $app->deleteListing($dataObj->deleteListing,$db);
+}
+elseif($dataObj->reserveListing)
+{
+    $id = $dataObj->id;
+    $price = $dataObj->price;
+    $room = $dataObj->room;
+    $app = new listing();
+    $app->reserve($id,$username,$price,$room,$db);
+}
+elseif($dataObj->checkReservation)
+{
+    if(isset($profile))
+    {
+        if($profile == "student")
+        {
+            echo "1";
+        }else
+        {
+            echo "2";
+        }
+    }
+    else
+    {
+        echo "0";
+    }
+}
+elseif($dataObj->getMyReservations)
+{
+    $app = new listing();
+    echo $app->getMyReservations($username,$db);
+}
+elseif($dataObj->deleteReservation)
+{
+    $user = $dataObj->deleteReservation;
+    $hostel_id = $dataObj->hostel_id;
+    $app = new listing();
+    echo $app->deleteReservation($user,$hostel_id,$db);
 }

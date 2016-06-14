@@ -195,7 +195,7 @@
 		<!-- single-agent -->
 		<div class="single-agent" ng-repeat="mAgentListing in mAgent track by $index">
 			<div class="image-box">
-				<img src="img/agents/manager.png" alt="agent">
+				<img ng-src="http://hostelguide.icedandfreshfoods.com/{{mAgentListing.profile_pic}}" class="prof" alt="agent"   onerror="this.src='img/agents/manager.png'">
 			</div>
 			<div class="desc-box">
 				<h4>{{mAgentListing.name}}</h4>

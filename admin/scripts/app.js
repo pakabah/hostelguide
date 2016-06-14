@@ -29,6 +29,10 @@ app.factory('Login', function($http){
         getName: function()
         {
             return  $http.post('../process/process_login.php',{getUsername: 'ASEW45FUVNTE6UE'});
+        },
+        getPic: function()
+        {
+            return  $http.post('../process/process_login.php',{getUserPic: 'ASEW45FUVNTE6UE'});
         }
 
     }
@@ -55,6 +59,23 @@ app.factory("Listing", function($http){
         getMyListing: function()
         {
             return $http.post('../process/process_listings.php',{getMyListing: 'ASEW45FUVNTE6UE'});
+        },
+        getListingEdit: function(listingId)
+        {
+            return $http.post('../process/process_listings.php',{getListingEdit: listingId});
+        },
+        deleteListing: function(listingId)
+        {
+            return $http.post('../process/process_listings.php',{deleteListing: listingId});
+        },
+        getMyReservations: function()
+        {
+            return $http.post('../process/process_listings.php',{getMyReservations: 'ASEW45FUVNTE6UE'});
+        },
+        deleteUser: function(username,hostel_id)
+        {
+            return $http.post('../process/process_listings.php',{deleteReservation: username,hostel_id:hostel_id});
+
         }
     }
 });
@@ -76,6 +97,8 @@ app.factory("Settings", function($http){
    }
 });
 
+
+
 app.controller("MenuController", function($scope,Login){
     Login.getName().success(function(data){
        $scope.name = data;
@@ -87,7 +110,11 @@ app.controller("MenuController", function($scope,Login){
 
             window.open("/","_self");
         });
-    }
+    };
+
+    Login.getPic().success(function(data){
+        $scope.profile = data;
+    })
 });
 
 app.controller("MainController", function($scope){
@@ -160,28 +187,154 @@ app.controller("UploadController", function($scope,Listing,Upload,$timeout){
                     }, null, function (evt) {
                         var progressPercentage = parseInt(100.0 *
                             evt.loaded / evt.total);
-                        $scope.log = 'progress: ' + progressPercentage +
-                            '% ' + evt.config.data.file.name + '\n' +
-                            $scope.log;
                     });
                 }
             }
-
+            $scope.hostelName = "";
+            $scope.region = "";
+            $scope.campus="";
+            $scope.area = "";
+            $scope.location= "";
+            $scope.phone ="";
+            $scope.email= "";
+            $scope.oneRoom = "";
+            $scope.twoRoom = "";
+            $scope.threeRoom ="";
+            $scope.fourRoom ="";
+            $scope.fiveRoom="";
+            $scope.description = "";
+            $scope.lon="";
+            $scope.lat="";
             $scope.cCreated = false;
         }
+    };
+
+    $scope.editDetails = function(listingId)
+    {
+        Listing.getListingEdit(listingId).success(function(data){
+            console.log(data);
+            $scope.Arooms = angular.fromJson(data[0].rooms);
+            $scope.edithostelname = data[0].hostel_name;
+            $scope.editregion = data[0].region;
+            $scope.editcampus = data[0].campus;
+            $scope.editarea = data[0].area;
+            $scope.editlocation = data[0].location;
+            $scope.editphone = data[0].phone;
+            $scope.editemail = data[0].email;
+
+            angular.forEach($scope.Arooms, function(value,key){
+                console.log(value);
+                if(value.room == 1)
+                {
+                    $scope.editoneRoom = value.price;
+                }
+                 if(value.room == 2)
+                {
+                    $scope.edittwoRoom = value.price;
+                }
+                 if(value.room == 3)
+                {
+                    $scope.editthreeRoom = value.price;
+                }
+                 if(value.room == 4)
+                {
+                    $scope.editfourRoom = value.price;
+                }
+                 if(value.room == 5)
+                {
+                    $scope.editfiveRoom = value.price;
+                }
+            });
+
+            $scope.editdescription = data[0].details;
+            $scope.editlon = data[0].long;
+            $scope.editlat = data[0].lat;
+        });
+    };
+
+    $scope.deleteListing = function(listingId)
+    {
+      Listing.deleteListing(listingId).success(function(data){
+         Listing.getMyListing().success(function(data){
+             $scope.iMyListing = data;
+             console.log(data);
+         })
+      });
+    };
+
+    Listing.getMyReservations().success(function(data){
+       console.log(data);
+        $scope.mReservations = data;
+    });
+
+    $scope.deleteUser = function(username,hostel_id)
+    {
+        Listing.deleteUser(username,hostel_id).success(function(data){
+            Listing.getMyReservations().success(function(data){
+                console.log(data);
+                $scope.mReservations = data;
+            });
+        });
     }
 
 });
 
-app.controller("SettingsController", function($scope,Settings,Login){
+app.controller("SettingsController", function($scope,Settings,Login,Upload){
+    $scope.npass = true;
 
     Settings.getMyDetails().success(function(data){
         $scope.names = data.name;
         $scope.email = data.email;
         $scope.phone = data.phone;
+        $scope.profile = data.pic;
     });
 
     Login.getName().success(function(data){
         $scope.num = data;
     });
+
+    $scope.updateProfile = function(names,phone,email)
+    {
+        $scope.upload($scope.profile,names,phone,email);
+    };
+
+    $scope.upload = function (files,names,phone,email) {
+        if (files && files.length) {
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (!file.$error) {
+                    Upload.upload({
+                        url: '../process/process_profile.php',
+                        data: {
+                            file: file,
+                            name: names,
+                            phone: phone,
+                            email: email
+                        }
+                    }).then(function (resp) {
+                        //$timeout(function () {
+                        //    $scope.log = 'file: ' +
+                        //        resp.config.data.file.name +
+                        //        ', Response: ' + JSON.stringify(resp.data) +
+                        //        '\n' + $scope.log;
+                        //});
+                    }, null, function (evt) {
+                        var progressPercentage = parseInt(100.0 *
+                            evt.loaded / evt.total);
+                    });
+                }
+            }
+            $scope.names = "";
+            $scope.email = "";
+            $scope.phone="";
+            $scope.cCreated = false;
+        }
+    };
+
+    $scope.updatePass = function(oldpassword,newpassword)
+    {
+        Settings.updatePassword(oldpassword,newpassword).success(function(data){
+            $scope.npass = false;
+        });
+    }
 });
